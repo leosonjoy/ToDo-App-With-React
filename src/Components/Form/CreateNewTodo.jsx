@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import { v4 as uuidv4 } from "uuid";
 
 const CreateNewTodo = (props) => {
   const [task, setTask] = useState({
@@ -16,7 +15,8 @@ const CreateNewTodo = (props) => {
   };
   const addTask = (event) => {
     event.preventDefault();
-    return props.onAddTask(task);
+    props.onAddTask(task);
+    setTask({ taskName: "", taskDesc: "", date: "" });
   };
 
   return (

@@ -1,44 +1,34 @@
-import React from "react";
+import React, { useState } from "react";
+import CompletedTask from "./CompletedTask";
 import IncompleteTask from "./IncompleteTask";
 
 const TaskList = (props) => {
-  console.log(props);
-  const { todosData } = props;
+  const { todosData, completedTodoData } = props;
+  // console.log(completedTodoData);
   return (
     <section>
       <div className="tasklist">
         <div>
           <h1>Incomplete Tasks</h1>
           <ul id="incomplete">
-            {todosData.map(
-              (todo) => (
-                <IncompleteTask
-                  key={todo.id}
-                  todo={todo}
-                  // onRemove={onRemove(id)}
-                />
-              )
-              //   console.log(todo.id)
-            )}
+            {todosData.map((todo) => (
+              <IncompleteTask
+                key={todo.id}
+                todo={todo}
+                onRemoveIncomplete={props.onRemoveIncomplete}
+              />
+            ))}
           </ul>
         </div>
-        {/* COMPLETED TASK */}
-        {/* <div>
-            <h1>Complete Tasks</h1>
-            <ul id="complete">
-              <li>
-                <div className="task-item">
-                  <div className="task-item-content">
-                    <h4 className="task-item-title">Item Title</h4>
-                    <p className="task-item-description">
-                      Item description goes here.
-                    </p>
-                  </div>
-                  <button className="task-item-button">Delete</button>
-                </div>
-              </li>
-            </ul>
-          </div> */}
+        {/*==== COMPLETED TASK =====*/}
+        <div>
+          <h1>Complete Tasks</h1>
+          <ul id="complete">
+            {completedTodoData.map((comTodo) => (
+              <CompletedTask key={comTodo.id} comTodo={comTodo} />
+            ))}
+          </ul>
+        </div>
       </div>
     </section>
   );
