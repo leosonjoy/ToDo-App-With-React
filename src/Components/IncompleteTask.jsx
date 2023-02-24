@@ -1,8 +1,8 @@
 import React from "react";
+import Deadline from "./Deadline";
 
 const IncompleteTask = (props) => {
   const { taskName, taskDesc, date, id } = props.todo;
-  const { onComplete } = props;
 
   const handleCheckbox = () => {
     return props.onRemoveIncomplete(id);
@@ -15,10 +15,7 @@ const IncompleteTask = (props) => {
           <h4 className="task-item-title">{taskName}</h4>
           <p className="task-item-description">{taskDesc}</p>
         </div>
-        <div className="task-item-deadline">
-          <p>Deadline</p>
-          <p>{date}</p>
-        </div>
+        <Deadline deadline={date} id={id} />
       </div>
     </li>
   );

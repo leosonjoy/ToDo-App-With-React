@@ -43,8 +43,15 @@ const CreateNewTodo = (props) => {
         ></textarea>
       </div>
       <div>
-        <input
+        {/* <input
           type="date"
+          name="date"
+          id="date"
+          value={date}
+          onChange={handleChange}
+        /> */}
+        <input
+          type="datetime-local"
           name="date"
           id="date"
           value={date}
