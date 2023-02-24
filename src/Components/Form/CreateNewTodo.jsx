@@ -52,9 +52,11 @@ const CreateNewTodo = (props) => {
         /> */}
         <input
           type="datetime-local"
+          // onFocus="(this.type='datetime-local')"
           name="date"
           id="date"
           value={date}
+          placeholder="add your deadline"
           onChange={handleChange}
         />
       </div>
