@@ -1,10 +1,10 @@
 import React, { useState } from "react";
+
 import CompletedTask from "./CompletedTask";
 import IncompleteTask from "./IncompleteTask";
 
 const TaskList = (props) => {
   const { todosData, completedTodoData } = props;
-  // console.log(completedTodoData);
   return (
     <section>
       <div className="tasklist">
@@ -20,12 +20,16 @@ const TaskList = (props) => {
             ))}
           </ul>
         </div>
-        {/*==== COMPLETED TASK =====*/}
+        {/*====== COMPLETED TASK =====*/}
         <div>
           <h1>Complete Tasks</h1>
           <ul id="complete">
             {completedTodoData.map((comTodo) => (
-              <CompletedTask key={comTodo.id} comTodo={comTodo} />
+              <CompletedTask
+                key={comTodo.id}
+                comTodo={comTodo}
+                onRemoveComplete={props.onRemoveComplete}
+              />
             ))}
           </ul>
         </div>
