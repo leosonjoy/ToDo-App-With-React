@@ -29,6 +29,7 @@ const CreateNewTodo = (props) => {
           placeholder="Enter Your Task"
           value={taskName}
           onChange={handleChange}
+          required
         />
       </div>
       <div>
@@ -40,25 +41,27 @@ const CreateNewTodo = (props) => {
           rows="3"
           value={taskDesc}
           onChange={handleChange}
+          required
         ></textarea>
       </div>
       <div>
-        {/* <input
-          type="date"
+        <input
+          type="datetime-local"
           name="date"
           id="date"
           value={date}
           onChange={handleChange}
-        /> */}
-        <input
-          type="datetime-local"
-          // onFocus="(this.type='datetime-local')"
+          required
+        />
+        {/* <input
+          type="text"
+          onFocus={({ type } = "datetime-local")}
           name="date"
           id="date"
           value={date}
           placeholder="add your deadline"
           onChange={handleChange}
-        />
+        /> */}
       </div>
       <button type="submit">Add Task</button>
     </form>
